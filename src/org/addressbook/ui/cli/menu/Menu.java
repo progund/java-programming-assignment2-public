@@ -1,7 +1,50 @@
 package org.addressbook.ui.cli.menu;
 import java.util.List;
 import java.util.ArrayList;
-
+/**
+ * This class represents a text based menu consisting of
+ * "menu items". Menu items consist of a text describing a menu option
+ * (prepended by a number for the user to select) and a
+ * MenuAction object which will be run if the user selects the corresponding
+ * number of the menu item.
+ *
+ * In order to create a menu object, use the constructor which takes
+ * a String reference as the only argument, which should be the title text
+ * of the menu, then add menu items using the addMenuItem() method.
+ *
+ * To start the menu, call the start() method. Starting the menu object
+ * will display all the menu items (prepending by their number) and wait
+ * for the user to enter one of the numbers, which will trigger the code
+ * in the MenuAction's onItemSelecte() method to be run.
+ *
+ * The menu will automatically add a "quit" menu item as the last
+ * option. Selecting the number for "quit" will make the start()
+ * method return. The menu will run eternally until the user selects
+ * the quit option.
+ *
+ * Here's a code example for creating and running a simple example menu:
+<pre>
+    Menu m = new Menu("this is a menu");
+    m.addMenuItem("Print today's date", new MenuAction(){
+        public void onItemSelected(){
+          System.out.println(new Date());
+        }
+      });
+    m.addMenuItem("Print system info", new MenuAction(){
+        public void onItemSelected(){
+          System.out.println(System.getProperties().get("os.name")
+                             + " - Java: "
+                             + System.getProperties().get("java.version"));
+        }
+      });
+    m.addMenuItem("Say hello", new MenuAction(){
+    public void onItemSelected(){
+          System.out.println("Hello");
+        }
+      });
+    m.start();
+</pre>
+ */
 public class Menu{
   
   /* The menu has a list of menu items */
