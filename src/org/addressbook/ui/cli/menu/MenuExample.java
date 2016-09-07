@@ -1,7 +1,13 @@
 package org.addressbook.ui.cli.menu;
 import java.util.Date;
 
-public class MenuExample{
+/**
+ * 
+ * This class is not a part of the address book API, it only
+ * serves as an example on how to use the Menu API, as seen
+ * in this class' main method.
+ */
+public class MenuExample{  
   public static void main(String[] args){
     Menu m = new Menu("this is a menu");
     m.addMenuItem("Print today's date", new MenuAction(){

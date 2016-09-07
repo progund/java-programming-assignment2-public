@@ -59,8 +59,9 @@ public class Menu{
   private String title;
 
 
-  /* The only way to create a menu object:
-   * provide a title.
+  /**
+   * Creates a new Menu with the title provided.
+   * @param title The titel which will be used as a heading for this menu
    */
   public Menu(String title){
     // Initialize the list
@@ -69,17 +70,27 @@ public class Menu{
     this.title = title;
   }
 
-  /* This is part of the public API of the menu object:
-   * A way to add a menu item to the menu.
+  /**
+   * Adds a menu item to this menu.
+   * @param prompt The text describing this menu item
+   * @param action The {@link MenuAction} to be run if the user selects this menu item
    */
   public void addMenuItem(String prompt, MenuAction action){
     // Add this text and action to the list of menu items
     items.add(new MenuItem(prompt, action));
   }
 
-  /* This is part of the public API of the menu object:
-   * a way to start the menu (displaying the options and
-   * reacting to the user's selection.
+  /**
+   * Starts this menu. The method will enter an eternal loop,
+   * displaying the menu items and accepting input until the
+   * user selects the item number for the automatically provided
+   * quit option, which will make this method return.
+   *
+   * Each menu item will be prepended with a number for the
+   * user to select. The last item is the provided quit item.
+   *
+   * When the user selects an item number, the corresponding
+   * {@link MenuAction} {@link MenuAction#onItemSelected()} method will run.
    */
   public void start(){
     while(true){

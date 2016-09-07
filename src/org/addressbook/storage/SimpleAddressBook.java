@@ -5,6 +5,18 @@ import java.util.Collections;
 import java.io.*;
 import java.util.Iterator;
 
+/**
+ * This class is an implemenation of {@link SimpleMutableList}
+ * and typed for {@link Contact} elements.
+ *
+ * For storage of the address book, it will use a file with
+ * serialized {@link Contact} objects. The file will be created
+ * (or assumed to exist) in <code>$HOME/.address_book</code>
+ * (where $HOME is the user's home directory).
+ *
+ * If there are any exceptions thrown during file I/O, these will
+ * be logged to <code>$HOME/.address_book.log</code> for reference.
+ */
 public class SimpleAddressBook implements SimpleMutableList<Contact>{
   
   private static final String LOG_FILE =
@@ -19,7 +31,9 @@ public class SimpleAddressBook implements SimpleMutableList<Contact>{
     ".address_book";
   
   private List<Contact> entries;
-  
+  /**
+   * Creates a new SimpleAddressBook with an empty list of {@link Contact} elements.
+   */
   public SimpleAddressBook(){
     entries = new ArrayList<>();
   }
