@@ -27,10 +27,24 @@ public class SimpleApplication{
       });    
 
     // Your tasks:
-    /* Add a menu item for listing all contacts */    
+    /* 1. Add a menu item for listing all contacts */    
 
-    /* Add a menu item for adding a contact */
-    // See above, and MenuExample for the syntax
+    /* 2. Add a menu item for adding a contact 
+     * See above, and MenuExample for the syntax for
+     * creating a menu item.
+     *
+     * Prompt the user for the information for the
+     * new contact to be added: name, email and phone.
+     *
+     * See org.addressbook.textutils.TextUtilsExample 
+     * for code examples on how to read a string from
+     * the user.
+     *
+     * Create a new Contact using the strings you
+     * get from the user, and call entries.addEntry()
+     * using the reference to the new Contact as the
+     * only argument.
+     */
   }
 
   public void start(){
