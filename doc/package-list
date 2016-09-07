@@ -1,2 +1,4 @@
+org.addressbook.main
 org.addressbook.storage
+org.addressbook.textutils
 org.addressbook.ui.cli.menu
