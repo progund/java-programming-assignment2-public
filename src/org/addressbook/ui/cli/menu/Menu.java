@@ -2,26 +2,31 @@ package org.addressbook.ui.cli.menu;
 import java.util.List;
 import java.util.ArrayList;
 /**
+ * <p>
  * This class represents a text based menu consisting of
  * "menu items". Menu items consist of a text describing a menu option
  * (prepended by a number for the user to select) and a
  * MenuAction object which will be run if the user selects the corresponding
  * number of the menu item.
- *
+ * </p>
+ * <p>
  * In order to create a menu object, use the constructor which takes
  * a String reference as the only argument, which should be the title text
  * of the menu, then add menu items using the addMenuItem() method.
- *
+ * </p>
+ * <p>
  * To start the menu, call the start() method. Starting the menu object
  * will display all the menu items (prepending by their number) and wait
  * for the user to enter one of the numbers, which will trigger the code
  * in the MenuAction's onItemSelecte() method to be run.
- *
+ * </p>
+ * <p>
  * The menu will automatically add a "quit" menu item as the last
  * option. Selecting the number for "quit" will make the start()
  * method return. The menu will run eternally until the user selects
  * the quit option.
- *
+ * </p>
+ * <p>
  * Here's a code example for creating and running a simple example menu:
 <pre>
     Menu m = new Menu("this is a menu");
@@ -44,6 +49,7 @@ import java.util.ArrayList;
       });
     m.start();
 </pre>
+ * </p>
  */
 public class Menu{
   
