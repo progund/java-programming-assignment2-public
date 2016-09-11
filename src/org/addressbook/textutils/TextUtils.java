@@ -23,7 +23,11 @@ public class TextUtils{
   public static String askFor(String prompt){
     String result=null;
     System.out.print(prompt + ": ");
-    result = System.console().readLine();
+    if(System.console() == null){
+      new java.util.Scanner(System.in).nextLine();
+    }else{
+      result = System.console().readLine();
+    }
     return result;
   }
 }
