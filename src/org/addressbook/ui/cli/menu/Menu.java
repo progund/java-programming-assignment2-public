@@ -1,6 +1,7 @@
 package org.addressbook.ui.cli.menu;
 import java.util.List;
 import java.util.ArrayList;
+import static org.addressbook.textutils.TextUtils.askFor;
 /**
  * <p>
  * This class represents a text based menu consisting of
@@ -106,9 +107,9 @@ public class Menu{
         // Add an option for quitting (this would be the last number)
         System.out.println(index + " quit");
         // Prompt the user for a selection (a number from the list)
-        System.out.print("Please enter a number from the menu: ");
+        // System.out.print("Please enter a number from the menu: ");
         // Read the number from the user
-        reply = Integer.parseInt(System.console().readLine());
+        reply = Integer.parseInt(askFor("Pleas enter a number from the menu"));
         // If the user wants to quit, then return from this method
         if (reply==index) {
           System.out.println("\nBye!\n");
