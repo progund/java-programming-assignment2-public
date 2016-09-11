@@ -24,7 +24,7 @@ public class TextUtils{
     String result=null;
     System.out.print(prompt + ": ");
     if(System.console() == null){
-      new java.util.Scanner(System.in).nextLine();
+      result = new java.util.Scanner(System.in).nextLine();
     }else{
       result = System.console().readLine();
     }
