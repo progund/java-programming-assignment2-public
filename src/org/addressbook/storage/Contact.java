@@ -16,12 +16,14 @@ import java.io.Serializable;
 
 public final class Contact implements Serializable, Comparable<Contact>{
 
-  /* There's no point in initializing instance variables to null
-   * but we do it here, so that the empty constuctor compiles
+  /*
+   * Contacts are immutable, so the instance variables could
+   * be declared final. But for simplicity, we skip this in
+   * this version.
    */
-  private final String name=null;
-  private final String email=null;
-  private final String phone=null;
+  private String name;
+  private String email;
+  private String phone;
   
   /**
    * Constructs a new Contact, using the arguments for the state.
