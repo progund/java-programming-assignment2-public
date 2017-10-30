@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?><diagram program="umlet" version="13.3">
+  <zoom_level>11</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>891</x>
+      <y>55</y>
+      <w>583</w>
+      <h>286</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;immutable&gt;&gt;
+org.addressbook.storage::Contact
+--
+- name : String
+- email : String
+- phone : String
+--
++ &lt;&lt;constructor&gt;&gt; Contact(name : String, email : String, phone : String)
++ name() : String {name != null &amp;&amp; !equals("")
++ email() : String
++ phone() : String
++ changeName(name : String) : Contact
++ changeEmail(email : String) : Contac
++ changePhone(phone : String) : Contactt
++ equals(other : Object) : boolean &lt;&lt;Override&gt;&gt;
++ hashCode() : int &lt;&lt;Override&gt;&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>66</x>
+      <y>418</y>
+      <w>484</w>
+      <h>473</h>
+    </coordinates>
+    <panel_attributes>org.addressbook.storage::SimpleAddressBook&lt;Contact&gt;
+--
+__- LOG_FILE : String {readOnly}__
+__- ADDRESS_FILE : String [readOnliy}__
+- entries : Contact[0..*]
+--
++ &lt;&lt;constructor&gt;&gt; SimpleAddressBook()
++ numberOfEntries() : int
++ listEntries() : void
++ save() : void
++ load() : void
++ addEntry(entry : E)
++ contains(entry : E) : boolean
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>66</x>
+      <y>77</y>
+      <w>418</w>
+      <h>187</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+org.addressbook.storage::SimpleMutableList&lt;E&gt;
+--
+/+ numberOfEntries() : int/
+/+ listEntries() : void/
+/+ save() : void/
+/+ load() : void/
+/+ addEntry(entry : E)/
+/+ contains(entry : E) : boolean/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>253</x>
+      <y>253</y>
+      <w>33</w>
+      <h>187</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>539</x>
+      <y>165</y>
+      <w>374</w>
+      <h>330</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;280.0;140.0;280.0;140.0;10.0;320.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>759</x>
+      <y>462</y>
+      <w>385</w>
+      <h>132</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Focus&gt;&gt;
+org.addressbook.main::SimpleApplication
+--
+- list : SimpleMutableList&lt;Contact&gt;
+- menu : Menu
+--
++ &lt;&lt;constructor&gt;&gt; SimpleApplication()
++ start() : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>539</x>
+      <y>528</y>
+      <w>242</w>
+      <h>33</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>200.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>759</x>
+      <y>704</y>
+      <w>506</w>
+      <h>253</h>
+    </coordinates>
+    <panel_attributes>org.addressbook.ui.cli.menu::Menu
+--
+- items : MenuItem [1..*]
+- title : String
+--
++ &lt;&lt;constructor&gt;&gt; Menu(title : String)
++ addMenuItem(prompt : String, action : MenuAction)
++ start() : void
+--
+- &lt;&lt;inner class&gt;&gt; MenuItem
+================
+- prompt : String
+- action : ManuAction
++ &lt;&lt;constructor&gt;&gt; MenuItem(prompt : String, action : MenuAction)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>759</x>
+      <y>979</y>
+      <w>330</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Utility&gt;&gt;
+org.addressbook.textutils::TextUtils
+--
+__+ askFor(prompt : String) : String__</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>924</x>
+      <y>583</y>
+      <w>33</w>
+      <h>143</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1254</x>
+      <y>583</y>
+      <w>143</w>
+      <h>330</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;280.0;110.0;280.0;110.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1188</x>
+      <y>517</y>
+      <w>330</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+org.addressbook.ui.cli.menu::MenuAction
+--
+/+ onItemSelected() : void/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>682</x>
+      <y>726</y>
+      <w>99</w>
+      <h>143</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>70.0;110.0;10.0;110.0;10.0;10.0;70.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1298</x>
+      <y>979</y>
+      <w>231</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;anonymous inner class&gt;&gt;
+__: MenuAction_
+--
+[interacts with the user]</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1386</x>
+      <y>583</y>
+      <w>132</w>
+      <h>418</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;instanceOf&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;360.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1078</x>
+      <y>990</y>
+      <w>242</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;Use&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;200.0;20.0</additional_attributes>
+  </element>
+</diagram>
