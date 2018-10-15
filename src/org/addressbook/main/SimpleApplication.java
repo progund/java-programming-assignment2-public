@@ -60,7 +60,7 @@ public class SimpleApplication{
      * the user.
      *
      * Create a new Contact using the strings you
-     * get from the user, and call entries.addEntry()
+     * get from the user, and call list.addEntry()
      * using the reference to the new Contact as the
      * only argument.
      */
