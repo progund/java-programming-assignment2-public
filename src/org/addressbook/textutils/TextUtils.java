@@ -1,5 +1,7 @@
 package org.addressbook.textutils;
 
+import java.util.Scanner;
+
 /**
  * A utility class with (so far) one static method for getting
  * values from the user, using standard out and standard in for
@@ -7,6 +9,8 @@ package org.addressbook.textutils;
  */
 public class TextUtils{
 
+  private static Scanner in = new Scanner(System.in);
+  
   /* We don't want client code to instantiate this class */
   private TextUtils(){}
 
@@ -24,7 +28,7 @@ public class TextUtils{
     String result=null;
     System.out.print(prompt + ": ");
     if(System.console() == null){
-      result = new java.util.Scanner(System.in).nextLine();
+      result = in.nextLine();
     }else{
       result = System.console().readLine();
     }
