@@ -1,9 +1,10 @@
 #!/bin/bash
 
 LOG_FILE=ab.log
-ECHO=echo
+ECHO=/usr/bin/echo
 MC=org.addressbook.main.SimpleMain
 
+AWK=awk
 
 declare -a GIVEN_NAMES
 declare -a FAMILY_NAMES
@@ -99,15 +100,15 @@ set_menu_choices()
         echo 
         echo "If you would like to run this script using another class (as main) try:"
         echo "  $0 --main-class <package.class>"
-        echo "where package.class should be replaced by your class complete name"
+        echo "where package.class should be replaced by your class' complete name"
         echo 
         exit 1
     fi
        
-    LIST=$(grep -i "^[0-9]*[ ]*list" $TMP_FILE | head -1 | awk '{ print $1}')
-    ADD=$(grep -i "^[0-9]*[ ]*add" $TMP_FILE | head -1 | awk '{ print $1}')
-    REMOVE=$(grep -i "^[0-9]*[ ]*" $TMP_FILE | egrep -i "delete|remove" | head -1 | awk '{ print $1}')
-    EXIT=$(grep -i "^[0-9]*[ ]*" $TMP_FILE | egrep -i "exit|quit" | head -1 | awk '{ print $1}')
+    LIST=$(grep -i "^[0-9]*[ ]*list" $TMP_FILE | head -1 | $AWK '{ print $1}')
+    ADD=$(grep -i "^[0-9]*[ ]*add" $TMP_FILE | head -1 | $AWK '{ print $1}')
+    REMOVE=$(grep -i "^[0-9]*[ ]*" $TMP_FILE | egrep -i "delete|remove" | head -1 | $AWK '{ print $1}')
+    EXIT=$(grep -i "^[0-9]*[ ]*" $TMP_FILE | egrep -i "exit|quit" | head -1 | $AWK '{ print $1}')
 }
 
 log()
@@ -326,7 +327,6 @@ check_student()
         do
             test_add_single
         done
-        MULT_ADDS=$(( $ADDS * 100 ))
         elogn " * Test adding multiple contacts ($MULT_ADDS contacts): "
         test_add_multiple
     else
@@ -359,9 +359,28 @@ check_and_execute_script()
     echo " OK"
 }
 
+setup_os()
+{
+    if [ "$(uname  | grep -ic cygwin)" != "0" ]
+    then
+        AWK=gawk
+        echo " --== Notification  ==--"
+        echo "   -- You seem to be using Cygwin Windows"
+        echo "   -- Due to some default settings in Windows"
+        echo "   -- we're reducinh the number of contacts to add"
+        ADDS=2
+        MULT_ADDS=$(( $ADDS * 2 ))
+    fi
+}
+
+
+MULT_ADDS=$(( $ADDS * 100 ))
+setup_os
 
 parse_args $*
 echo "Using log file: $LOG_FILE"
+
+
 
 #
 # Test with existing scripts
