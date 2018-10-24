@@ -367,7 +367,7 @@ setup_os()
         echo " --== Notification  ==--"
         echo "   -- You seem to be using Cygwin Windows"
         echo "   -- Due to some default settings in Windows"
-        echo "   -- we're reducinh the number of contacts to add"
+        echo "   -- we're reducing the number of contacts to add"
         ADDS=2
         MULT_ADDS=$(( $ADDS * 2 ))
     fi
