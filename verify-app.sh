@@ -1,7 +1,7 @@
 #!/bin/bash
 
 LOG_FILE=ab.log
-ECHO=/usr/bin/echo
+ECHO=echo
 MC=org.addressbook.main.SimpleMain
 
 AWK=awk
