@@ -25,7 +25,7 @@ public class TextUtils{
    *
    */
   public static String askFor(String prompt){
-    String result=null;
+    String result;
     System.out.print(prompt + ": ");
     if(System.console() == null){
       result = in.nextLine();
