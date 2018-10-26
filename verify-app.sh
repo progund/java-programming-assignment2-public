@@ -92,7 +92,7 @@ set_menu_choices()
     EXIT=2
 
     TMP_FILE=.check-menu.txt
-    echo "" | $AB > $TMP_FILE 2>/dev/null
+    echo "2\n" | $AB > $TMP_FILE 2>/dev/null
     RET=$?
     if [ "$RET" -ne 0 ]
     then
