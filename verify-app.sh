@@ -442,6 +442,7 @@ then
 #    report " * 2. AND increase the value of INT in this script, e g "
 #    report " *   INT=1"
     report " *"
+    exit 1
 else
     report " *"
     report " * All is well..."
