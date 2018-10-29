@@ -321,7 +321,7 @@ check_student()
     if [ $COMP -eq 0 ]
     then
         test_exit
-        elog " * Test adding $ADDS contacts one by one (add and list): "
+        elog " * Test adding $ADDS contacts one by one (add, list and quit): "
         LIMIT=$(( $ADDS - 1))
         for CONTACT_NUMBER in $(seq 1 $ADDS)
         do
